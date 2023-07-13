@@ -2,16 +2,21 @@ const mongoose = require ('mongoose');
 const { Schema } = mongoose;
 
 const NotesSchema = new Schema ({
+    //user added to differentiate notes based on userId
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
     title: {
-        type: string,
+        type: String,
         isRequired: true
     },
     description: {
-        type: string,
+        type: String,
         isRequired: true
     },
     tag: {
-        type: string,
+        type: String,
         default: 'general'
     },
     date: {
