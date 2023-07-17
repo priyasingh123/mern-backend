@@ -102,6 +102,8 @@ router.post('/login',[
         if (!user) {
             return res.status(400).json({ error: "try to login with correct credentials" })
         }
+
+        //if user exists with that email
         const passCompare = await bcrypt.compare(password, user.password)
         if (!passCompare) {
             return res.status(400).json({ error: "try to login with correct credentials" })
