@@ -21,6 +21,7 @@ const UserSchema = new Schema ({
     }
 })
 
-const User = mongoose.model('user', UserSchema)
+//By convention, Mongoose pluralizes the model name, so it becomes "users"
+const User = mongoose.model('users', UserSchema)
 User.createIndexes();// ensures no duplicate value is there 
 module.exports = User

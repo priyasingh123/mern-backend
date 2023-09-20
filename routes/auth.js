@@ -1,3 +1,4 @@
+//all imports 
 const express = require('express')
 const {body, validationResult } = require ('express-validator')
 const bcrypt = require ('bcrypt')
@@ -7,7 +8,6 @@ const router = express.Router()
 const User = require ('../models/User')
 const fetchuser = require('../middleware/fetchuser')
 const JWT_SECRET = 'secretisgoodsoletshavesecret'
-
 
 //ROUTE 1 
 //create a user using: POST "/api/auth/createuser". No login required 
@@ -24,6 +24,7 @@ router.post ('/createuser',[
         }
         try {
             /*check if user with same email exists*/
+            // not necessary to enclose the field names in quotes like email
             let user = await User.findOne({ email: req.body.email })
             if (user) {
                 return res.status(400).json(req.body)
@@ -82,8 +83,6 @@ router.post ('/createuser',[
     }
 )
 
-
-
 //ROUTE 2
 //authenticate a user using: POST "/api/auth/login". No login required 
 router.post('/login',[ 
@@ -121,9 +120,7 @@ router.post('/login',[
         console.log (error.message)
         res.status(500).send('Bad Request')
     }
-    
 })
-
 
 
 //ROUTE 3

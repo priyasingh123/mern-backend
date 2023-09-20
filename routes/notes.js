@@ -14,8 +14,6 @@ router.get ('/fetchallnotes',fetchuser, async (req,res) => {
     res.send(notes)
 })
 
-
-
 //ROUTE 2
 //POST: add notes using POST: '/api/notes/addnote'. Login required
 router.post ('/addnote',[
@@ -125,7 +123,5 @@ router.delete('/deletenote/:id',fetchuser, async (req,res) => {
     }
     
 })
-
-
 
 module.exports = router

@@ -5,7 +5,7 @@ const NotesSchema = new Schema ({
     //user added to differentiate notes based on userId
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'users'
     },
     title: {
         type: String,
@@ -25,4 +25,6 @@ const NotesSchema = new Schema ({
     }
 })
 
+
+//recommended to use singular and Capitalised name for model 
 module.exports = mongoose.model('notes', NotesSchema)
